@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>demo-mybatisplus</module>
+        <module>demo-shiro</module>
+        <module>demo-springsecurity</module>
     </modules>
 
     <parent>
