@@ -10,17 +10,17 @@ import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wjq
  * @since 2021-10-09
  */
 @RestController
+@RequestMapping("/test")
 public class LoginController {
 
+    @RequestMapping(value = "/alias/{id}",method = RequestMethod.GET)
     @GetMapping("/hello/{id}")
     @RequestMappingAuth
     public String sayHello(@PathVariable String id){

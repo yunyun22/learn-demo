@@ -92,7 +92,7 @@ public class ShiroConfig {
         //对所有用户认证
         map.put("/**", "authc,my");
         //登录
-        shiroFilterFactoryBean.setLoginUrl("/login");
+        shiroFilterFactoryBean.setLoginUrl("/test/login");
         //首页
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //错误页面，认证不通过跳转

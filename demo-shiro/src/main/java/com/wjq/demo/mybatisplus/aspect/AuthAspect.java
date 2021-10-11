@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.lang.annotation.Annotation;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -27,6 +25,9 @@ import java.util.regex.Pattern;
 @Aspect
 @Component
 public class AuthAspect {
+
+
+    private final static Map<String, List<String>> CACHE = new ConcurrentHashMap<>();
 
     public static final List<String> PATHS = new ArrayList<>();
 
@@ -41,7 +42,13 @@ public class AuthAspect {
     private Pattern pattern = Pattern.compile("\\{.*?\\}");
 
     @Before("auth()")
-    public void doBefore(JoinPoint joinPoint) throws NoSuchMethodException {
+    public void doBefore(JoinPoint joinPoint) {
+
+        Set<RequestMapping> classRequestMapping = AnnotatedElementUtils.findAllMergedAnnotations(joinPoint.getTarget().getClass(), RequestMapping.class);
+        if (classRequestMapping != null && classRequestMapping.size() != 0) {
+            RequestMapping requestMapping = classRequestMapping.stream().findFirst().get();
+            String[] values = requestMapping.value();
+        }
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         //获取当前切点方法对象
         RequestMappingAuth annotation = methodSignature.getMethod().getAnnotation(RequestMappingAuth.class);
@@ -53,10 +60,12 @@ public class AuthAspect {
                 Matcher matcher = pattern.matcher(path);
                 path = matcher.replaceAll("*");
                 String method = requestMapping.method()[0].name();
-                if (!PATHS.contains(method + " " + path)) {
-                    throw new RuntimeException("没有权限");
+                if (PATHS.contains(method + " " + path)) {
+                    return;
                 }
             }
+
+            throw new RuntimeException("没有权限");
         }
     }
 
