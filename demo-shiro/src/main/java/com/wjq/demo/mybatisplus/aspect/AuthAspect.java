@@ -38,7 +38,8 @@ public class AuthAspect {
     public void auth() {
     }
 
-    Pattern pattern = Pattern.compile("\\\\\\{*\\\\}");
+    private Pattern pattern = Pattern.compile("\\{.*?\\}");
+
     @Before("auth()")
     public void doBefore(JoinPoint joinPoint) throws NoSuchMethodException {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
@@ -52,12 +53,11 @@ public class AuthAspect {
                 Matcher matcher = pattern.matcher(path);
                 path = matcher.replaceAll("*");
                 String method = requestMapping.method()[0].name();
-                if (!Objects.equals(PATHS.get(0), method + " " + path)) {
+                if (!PATHS.contains(method + " " + path)) {
                     throw new RuntimeException("没有权限");
                 }
             }
         }
     }
-
 
 }

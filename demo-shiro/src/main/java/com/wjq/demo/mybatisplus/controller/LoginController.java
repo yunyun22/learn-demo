@@ -27,6 +27,14 @@ public class LoginController {
         return "say hello";
     }
 
+
+    @GetMapping("/world/{id}")
+    @RequestMappingAuth
+    public String world(@PathVariable String id){
+        return "say hello";
+    }
+
+
     @GetMapping("/login")
     public String login(User user) {
         if (StringUtils.isEmpty(user.getUserName()) || StringUtils.isEmpty(user.getPassword())) {
