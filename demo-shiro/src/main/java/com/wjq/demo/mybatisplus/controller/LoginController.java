@@ -1,5 +1,6 @@
 package com.wjq.demo.mybatisplus.controller;
 
+import com.wjq.demo.mybatisplus.annotation.RequestMappingAuth;
 import com.wjq.demo.mybatisplus.entity.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -10,6 +11,7 @@ import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,9 +21,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class LoginController {
 
-    @GetMapping("/hello")
-    @RequiresRoles("adminX")
-    public String sayHello(){
+    @GetMapping("/hello/{id}")
+    @RequestMappingAuth
+    public String sayHello(@PathVariable String id){
         return "say hello";
     }
 

@@ -1,5 +1,6 @@
 package com.wjq.demo.mybatisplus.config;
 
+import com.wjq.demo.mybatisplus.filter.MyFilter;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
@@ -20,6 +21,7 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -75,13 +77,20 @@ public class ShiroConfig {
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+
+        //custom
+        Map<String, Filter> filters = new HashMap<>(1);
+        filters.put("my",new MyFilter());
+        shiroFilterFactoryBean.setFilters(filters);
+
+
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> map = new HashMap<>();
         //登出
         map.put("/admin/**", "authc, roles[admin]");
         map.put("/docs/**", "authc, perms[document:read]");
         //对所有用户认证
-        map.put("/**", "authc");
+        map.put("/**", "authc,my");
         //登录
         shiroFilterFactoryBean.setLoginUrl("/login");
         //首页
@@ -89,6 +98,9 @@ public class ShiroConfig {
         //错误页面，认证不通过跳转
         shiroFilterFactoryBean.setUnauthorizedUrl("/error");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
+
+
+
         return shiroFilterFactoryBean;
     }
 
