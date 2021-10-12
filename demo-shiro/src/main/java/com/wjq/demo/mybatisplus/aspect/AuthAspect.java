@@ -7,12 +7,9 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.AnnotatedElementUtils;
-import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.lang.annotation.Annotation;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
@@ -31,7 +28,7 @@ public class AuthAspect {
 
     public static final List<String> PATHS = new ArrayList<>();
 
-    {
+    static {
         PATHS.add("GET /hello/*");
     }
 
@@ -39,13 +36,13 @@ public class AuthAspect {
     public void auth() {
     }
 
-    private Pattern pattern = Pattern.compile("\\{.*?\\}");
+    private final Pattern pattern = Pattern.compile("\\{.*?\\}");
 
     @Before("auth()")
     public void doBefore(JoinPoint joinPoint) {
 
         Set<RequestMapping> classRequestMapping = AnnotatedElementUtils.findAllMergedAnnotations(joinPoint.getTarget().getClass(), RequestMapping.class);
-        if (classRequestMapping != null && classRequestMapping.size() != 0) {
+        if (classRequestMapping.size() != 0) {
             RequestMapping requestMapping = classRequestMapping.stream().findFirst().get();
             String[] values = requestMapping.value();
         }
@@ -53,7 +50,8 @@ public class AuthAspect {
         //获取当前切点方法对象
         RequestMappingAuth annotation = methodSignature.getMethod().getAnnotation(RequestMappingAuth.class);
         if (annotation != null) {
-            Set<RequestMapping> allMergedAnnotations = AnnotatedElementUtils.findAllMergedAnnotations(methodSignature.getMethod(), RequestMapping.class);
+            Set<RequestMapping> allMergedAnnotations =
+                    AnnotatedElementUtils.findAllMergedAnnotations(methodSignature.getMethod(), RequestMapping.class);
 
             for (RequestMapping requestMapping : allMergedAnnotations) {
                 String path = requestMapping.value()[0];
