@@ -12,6 +12,7 @@
         <module>demo-mybatisplus</module>
         <module>demo-shiro</module>
         <module>demo-springsecurity</module>
+        <module>demo-spring</module>
     </modules>
 
     <parent>
