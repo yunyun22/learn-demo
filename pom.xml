@@ -13,6 +13,7 @@
         <module>demo-shiro</module>
         <module>demo-springsecurity</module>
         <module>demo-spring</module>
+        <module>demo-common</module>
     </modules>
 
     <parent>
@@ -20,6 +21,10 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.3.12.RELEASE</version>
     </parent>
+
+    <properties>
+            <demo-common.version>1.0-SNAPSHOT</demo-common.version>
+    </properties>
 
 
     <dependencyManagement>
@@ -33,6 +38,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>3.4.3.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.wjq.demo</groupId>
+                <artifactId>demo-common</artifactId>
+                <version>${demo-common.version}</version>
             </dependency>
 
         </dependencies>
