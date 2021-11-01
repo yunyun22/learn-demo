@@ -16,8 +16,7 @@ public class MyMethodMatcher implements MethodMatcher {
         //不然获取不了
         MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
         //判断方法是否使用了MyAnnotation注解。
-        if (annotation != null) return true;
-        return false;
+        return annotation != null;
     }
 
     @Override

@@ -77,17 +77,16 @@ public class ShiroConfig {
 
         //custom
         Map<String, Filter> filters = new HashMap<>(1);
-        filters.put("my",new MyFilter());
+        filters.put("my", new MyFilter());
         shiroFilterFactoryBean.setFilters(filters);
 
 
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> map = new HashMap<>();
         //登出
-        map.put("/admin/**", "authc, roles[admin]");
-        map.put("/docs/**", "authc, perms[document:read]");
+        map.put("/admin/**", "authc, roles[admin,user]");
         //对所有用户认证
-        map.put("/**", "authc,my");
+        map.put("/**", "my[USER_ID=10086,SOURCE=app]");
         //登录
         shiroFilterFactoryBean.setLoginUrl("/test/login");
         //首页
@@ -95,7 +94,6 @@ public class ShiroConfig {
         //错误页面，认证不通过跳转
         shiroFilterFactoryBean.setUnauthorizedUrl("/error");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
-
 
 
         return shiroFilterFactoryBean;
