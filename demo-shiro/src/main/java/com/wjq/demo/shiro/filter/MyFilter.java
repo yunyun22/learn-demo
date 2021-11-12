@@ -35,7 +35,7 @@ public class MyFilter extends OncePerRequestFilter implements PathConfigProcesso
 
                 for (Map.Entry<String, String> e : list) {
                     if (!Objects.equals(httpServletRequest.getHeader(e.getKey()), e.getValue())) {
-                        System.out.println("error,not exist " + e.getKey() + ",dont visit this site");
+                        System.out.println("error,header　do not exist " + e.getKey() + ",dont visit this site");
                     }
                 }
             }

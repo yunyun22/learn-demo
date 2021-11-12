@@ -1,7 +1,7 @@
-package com.wjq.demo.shiro.controller;
+package com.wjq.demo.mybatisplus.controller;
 
-import com.wjq.demo.shiro.entity.User;
-import com.wjq.demo.shiro.service.UserService;
+import com.wjq.demo.mybatisplus.entity.User;
+import com.wjq.demo.mybatisplus.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

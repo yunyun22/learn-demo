@@ -1,7 +1,7 @@
-package com.wjq.demo.shiro.service;
+package com.wjq.demo.mybatisplus.service;
 
-import com.wjq.demo.shiro.entity.User;
-import com.wjq.demo.shiro.mapper.UserMapper;
+import com.wjq.demo.mybatisplus.entity.User;
+import com.wjq.demo.mybatisplus.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

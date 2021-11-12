@@ -1,4 +1,4 @@
-package com.wjq.demo.shiro;
+package com.wjq.demo.mybatisplus;
 
 
 import org.mybatis.spring.annotation.MapperScan;

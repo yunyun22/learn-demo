@@ -1,4 +1,4 @@
-package com.wjq.demo.shiro.advice;
+package com.wjq.demo.mybatisplus.advice;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

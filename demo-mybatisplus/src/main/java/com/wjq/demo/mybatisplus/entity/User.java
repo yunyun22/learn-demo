@@ -1,10 +1,13 @@
-package com.wjq.demo.shiro.entity;
+package com.wjq.demo.mybatisplus.entity;
+
+import java.time.LocalDateTime;
 
 public class User {
     private Long id;
     private String name;
     private Integer age;
     private String email;
+    private LocalDateTime createDate;
 
 
     public Long getId() {
@@ -37,5 +40,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public LocalDateTime getCreateDate() {
+
+        return createDate;
+    }
+
+    public void setCreateDate(LocalDateTime createDate) {
+        this.createDate = createDate;
     }
 }
