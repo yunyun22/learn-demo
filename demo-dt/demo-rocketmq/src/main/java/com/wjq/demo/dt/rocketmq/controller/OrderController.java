@@ -1,8 +1,9 @@
 package com.wjq.demo.dt.rocketmq.controller;
 
-import com.lee.entity.Order;
-import com.lee.service.OrderService;
-import com.lee.vo.OrderVo;
+
+import com.wjq.demo.dt.rocketmq.entity.Order;
+import com.wjq.demo.dt.rocketmq.service.OrderService;
+import com.wjq.demo.dt.rocketmq.vo.OrderVo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;

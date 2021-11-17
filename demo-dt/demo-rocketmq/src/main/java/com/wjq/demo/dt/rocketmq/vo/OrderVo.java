@@ -1,6 +1,6 @@
 package com.wjq.demo.dt.rocketmq.vo;
 
-import com.lee.entity.Order;
+import com.wjq.demo.dt.rocketmq.entity.Order;
 import lombok.Getter;
 import lombok.Setter;
 

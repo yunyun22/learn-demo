@@ -1,10 +1,10 @@
 package com.wjq.demo.dt.rocketmq.mq.listener;
 
 import com.alibaba.fastjson.JSON;
-import com.lee.entity.Order;
-import com.lee.entity.OrderTransactionLog;
-import com.lee.service.OrderService;
-import com.lee.service.OrderTransactionLogService;
+import com.wjq.demo.dt.rocketmq.entity.Order;
+import com.wjq.demo.dt.rocketmq.entity.OrderTransactionLog;
+import com.wjq.demo.dt.rocketmq.service.OrderService;
+import com.wjq.demo.dt.rocketmq.service.OrderTransactionLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.producer.LocalTransactionState;
 import org.apache.rocketmq.client.producer.TransactionListener;

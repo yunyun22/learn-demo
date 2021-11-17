@@ -1,7 +1,7 @@
 package com.wjq.demo.dt.rocketmq.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lee.entity.OrderTransactionLog;
+import com.wjq.demo.dt.rocketmq.entity.OrderTransactionLog;
 
 /***
  * @description: OrderTransactionLog service

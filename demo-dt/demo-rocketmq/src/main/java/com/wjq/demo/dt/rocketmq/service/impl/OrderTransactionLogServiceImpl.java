@@ -1,9 +1,9 @@
 package com.wjq.demo.dt.rocketmq.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lee.entity.OrderTransactionLog;
-import com.lee.mapper.OrderTransactionLogMapper;
-import com.lee.service.OrderTransactionLogService;
+import com.wjq.demo.dt.rocketmq.entity.OrderTransactionLog;
+import com.wjq.demo.dt.rocketmq.mapper.OrderTransactionLogMapper;
+import com.wjq.demo.dt.rocketmq.service.OrderTransactionLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

@@ -1,12 +1,13 @@
 package com.wjq.demo.dt.rocketmq.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.lee.entity.Order;
-import com.lee.entity.OrderTransactionLog;
-import com.lee.mapper.OrderMapper;
-import com.lee.mq.producer.OrderSuccessProducer;
-import com.lee.service.OrderService;
-import com.lee.service.OrderTransactionLogService;
+
+import com.wjq.demo.dt.rocketmq.entity.Order;
+import com.wjq.demo.dt.rocketmq.entity.OrderTransactionLog;
+import com.wjq.demo.dt.rocketmq.mapper.OrderMapper;
+import com.wjq.demo.dt.rocketmq.mq.producer.OrderSuccessProducer;
+import com.wjq.demo.dt.rocketmq.service.OrderService;
+import com.wjq.demo.dt.rocketmq.service.OrderTransactionLogService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.rocketmq.client.producer.SendStatus;

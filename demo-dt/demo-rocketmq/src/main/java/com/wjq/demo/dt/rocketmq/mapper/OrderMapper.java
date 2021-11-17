@@ -1,7 +1,8 @@
 package com.wjq.demo.dt.rocketmq.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.lee.entity.Order;
+
+import com.wjq.demo.dt.rocketmq.entity.Order;
 import org.apache.ibatis.annotations.Mapper;
 
 /***
