@@ -84,7 +84,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> map = new HashMap<>();
         //登出
-        map.put("/admin/**", "authc, roles[admin,user]");
+        map.put("/service/**", "authc, roles[admin,user],my[USER_ID=10086,SOURCE=app]");
         //对所有用户认证
         map.put("/**", "my[USER_ID=10086,SOURCE=app]");
         //登录
