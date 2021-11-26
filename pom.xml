@@ -16,6 +16,7 @@
         <module>demo-common</module>
         <module>demo-dt</module>
         <module>demo-starter</module>
+        <module>demo-jedis</module>
     </modules>
 
     <parent>
