@@ -14,8 +14,6 @@ import org.springframework.context.annotation.FilterType;
  * @author wjq
  * @since 2021-10-15
  */
-@ComponentScan(basePackages = { "com.wjq.demo" },
-        excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX,pattern="com.wjq.demo.config.Test2*"))
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
