@@ -1,6 +1,10 @@
 package com.wjq.demo.springsecurity;
 
 
+import com.wjq.demo.springsecurity.handler.MyAccessDeniedHandler;
+import com.wjq.demo.springsecurity.handler.MyAuthenticationEntryPoint;
+import com.wjq.demo.springsecurity.handler.MyAuthenticationFailureHandler;
+import com.wjq.demo.springsecurity.handler.MyAuthenticationSuccessHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -27,8 +31,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.formLogin() // 表单登录。跳转到security默认的登录表单页
+        http.formLogin()
+                //.loginPage("/login")
+                //.successForwardUrl("/home")
+                .successHandler(new MyAuthenticationSuccessHandler())
+                .failureHandler(new MyAuthenticationFailureHandler())
+                // 表单登录。跳转到security默认的登录表单页
                 // http.httpBasic() //basic登录
+                .and()
+                .exceptionHandling().accessDeniedHandler(new MyAccessDeniedHandler())
+                //.authenticationEntryPoint(new MyAuthenticationEntryPoint())
                 .and()
                 // 对请求授权
                 .authorizeRequests()
@@ -48,9 +60,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private HttpFirewall httpFirewall(){
         StrictHttpFirewall strictHttpFirewall=new StrictHttpFirewall();
-//        Set<String> allowedHttpMethods = new HashSet<>();
-//        allowedHttpMethods.add(HttpMethod.POST.name());
-//        strictHttpFirewall.setAllowedHttpMethods(allowedHttpMethods);
         strictHttpFirewall.setAllowedHostnames((s)-> "localhost".equals(s));
         return strictHttpFirewall;
     }
