@@ -17,6 +17,7 @@
         <module>demo-dt</module>
         <module>demo-starter</module>
         <module>demo-jedis</module>
+        <module>demo-springcloudfeign</module>
     </modules>
 
     <parent>
@@ -26,7 +27,7 @@
     </parent>
 
     <properties>
-            <demo-common.version>1.0-SNAPSHOT</demo-common.version>
+        <demo-common.version>1.0-SNAPSHOT</demo-common.version>
     </properties>
 
 

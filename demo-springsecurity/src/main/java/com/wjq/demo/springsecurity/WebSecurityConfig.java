@@ -50,7 +50,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 任何请求
                 .anyRequest()
                 // 需要身份认证
-                .authenticated();
+                .authenticated()
+                .and()
+                //如果将access-token放入到header中，不会产生csrf没有问题
+                .csrf().disable()
+        ;
     }
 
     @Override
@@ -58,9 +62,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.httpFirewall(httpFirewall());
     }
 
-    private HttpFirewall httpFirewall(){
-        StrictHttpFirewall strictHttpFirewall=new StrictHttpFirewall();
-        strictHttpFirewall.setAllowedHostnames((s)-> "localhost".equals(s));
+    private HttpFirewall httpFirewall() {
+        StrictHttpFirewall strictHttpFirewall = new StrictHttpFirewall();
+        strictHttpFirewall.setAllowedHostnames((s) -> "localhost".equals(s));
         return strictHttpFirewall;
     }
 }
