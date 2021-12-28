@@ -25,4 +25,10 @@ public class UserController {
         userService.add(user);
     }
 
+
+    @GetMapping("/batch/{age}")
+    public void batch(@PathVariable(name = "age") int age) {
+        userService.batch(age);
+    }
+
 }

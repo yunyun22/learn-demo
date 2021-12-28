@@ -1,27 +1,18 @@
 package com.wjq.demo.mybatisplus.service;
 
-import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.wjq.demo.mybatisplus.entity.User;
-import com.wjq.demo.mybatisplus.mapper.UserMapper;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
-@Service
-public class UserService {
+/**
+ * @author wjq
+ * @since 2021-12-01
+ */
+public interface UserService extends IService<User> {
+    void  add(User user);
 
-    @Resource
-    private UserMapper userMapper;
+    List<User> getUsers();
 
-
-    public List<User> getUsers() {
-        return userMapper.selectList(null);
-    }
-
-    @DS("a")
-    public void  add(User user){
-        userMapper.insert(user);
-    }
-
+    void batch(int i);
 }
