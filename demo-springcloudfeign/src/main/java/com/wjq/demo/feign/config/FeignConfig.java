@@ -1,5 +1,6 @@
 package com.wjq.demo.feign.config;
 
+import feign.Logger;
 import feign.Request;
 import feign.Retryer;
 import org.springframework.context.annotation.Bean;
@@ -26,5 +27,11 @@ public class FeignConfig {
     @Bean
     public Retryer feignRetryer() {
         return Retryer.NEVER_RETRY;
+    }
+
+    @Bean
+    public Logger.Level level(){
+        return Logger.Level.HEADERS;
+
     }
 }
