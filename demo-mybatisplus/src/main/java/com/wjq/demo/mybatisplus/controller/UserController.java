@@ -31,4 +31,9 @@ public class UserController {
         userService.batch(age);
     }
 
+    @PutMapping("/batch/{ids}")
+    public int batchUpdate(@PathVariable(name = "ids") List<Integer> ids,@RequestParam("age") Integer age) {
+        return userService.batchUpdate(ids,age);
+    }
+
 }

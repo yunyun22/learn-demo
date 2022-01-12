@@ -33,6 +33,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    public int batchUpdate(List<Integer> list,Integer age) {
+         return userMapper.batchUpdate(list,age);
+    }
+
+    @Override
     public void add(User user) {
         userMapper.insert(user);
     }
