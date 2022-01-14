@@ -1,5 +1,6 @@
 package com.wjq.demo.feign.config;
 
+import feign.Capability;
 import feign.Logger;
 import feign.Request;
 import feign.Retryer;
@@ -33,5 +34,10 @@ public class FeignConfig {
     public Logger.Level level(){
         return Logger.Level.HEADERS;
 
+    }
+
+    @Bean
+    public Capability myCapability() {
+        return new MyCapability();
     }
 }

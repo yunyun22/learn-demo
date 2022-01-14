@@ -15,4 +15,6 @@ public interface UserService extends IService<User> {
     List<User> getUsers();
 
     void batch(int i);
+
+    int batchUpdate(List<Integer> list,Integer age);
 }

@@ -53,8 +53,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 //如果将access-token放入到header中，不会产生csrf没有问题
-                .csrf().disable()
-        ;
+                .csrf().disable();
     }
 
     @Override
