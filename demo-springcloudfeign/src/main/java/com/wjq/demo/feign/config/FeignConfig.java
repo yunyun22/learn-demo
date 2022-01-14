@@ -1,5 +1,6 @@
 package com.wjq.demo.feign.config;
 
+import feign.Capability;
 import feign.Request;
 import feign.Retryer;
 import org.springframework.context.annotation.Bean;
@@ -26,5 +27,10 @@ public class FeignConfig {
     @Bean
     public Retryer feignRetryer() {
         return Retryer.NEVER_RETRY;
+    }
+
+    @Bean
+    public Capability myCapability() {
+        return new MyCapability();
     }
 }
