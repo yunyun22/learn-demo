@@ -20,6 +20,12 @@ public class TestController {
     @Autowired
     private Man man;
 
+
+    @GetMapping("/doError")
+    public void doError() throws Exception {
+        throw new Exception("this is a Exception");
+    }
+
     @MyAnnotation
     @GetMapping("/hello")
     public String sayHello() throws InterruptedException {

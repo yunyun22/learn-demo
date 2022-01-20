@@ -1,7 +1,6 @@
 package com.wjq.demo.spring;
 
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -9,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @since 2021-10-15
  */
 @SpringBootApplication
-public class Application {
+public class SpringApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        org.springframework.boot.SpringApplication.run(SpringApplication.class, args);
     }
 }

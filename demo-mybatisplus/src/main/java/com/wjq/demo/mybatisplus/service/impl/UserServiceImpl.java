@@ -33,6 +33,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int batchUpdate(List<Integer> list,Integer age) {
          return userMapper.batchUpdate(list,age);
     }

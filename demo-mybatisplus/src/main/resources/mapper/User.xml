@@ -3,13 +3,11 @@
 <mapper namespace="com.wjq.demo.mybatisplus.mapper.UserMapper">
 
     <update id="batchUpdate">
-        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
-            update user
-            <set>
-                age=${age}
-            </set>
-            where id = ${item} and age>1
+        update user set  age=(case
+        <foreach collection="list" item="item" index="index" open="" close="" separator="">
+            when (id=#{item} and age>1) then age=#{age}
         </foreach>
+        else age end);
     </update>
 
 </mapper>

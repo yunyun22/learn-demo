@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://139.155.73.132:3306/test?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+    url: jdbc:mysql://139.155.73.132:3306/test?characterEncoding=utf8&characterSetResults=utf8&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true&useAffectedRows=true
     password: yuanyun520
     username: root
     driver-class-name: com.mysql.cj.jdbc.Driver
