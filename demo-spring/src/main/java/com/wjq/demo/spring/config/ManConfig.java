@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ManConfig {
 
-    // @Bean
+//    @Bean
 //    public Man getMan() {
 //        System.out.println("init ====================================");
 //        return new Man("www2");
