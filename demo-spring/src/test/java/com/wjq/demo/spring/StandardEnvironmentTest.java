@@ -3,9 +3,7 @@ package com.wjq.demo.spring;
 import com.wjq.demo.spring.env.MyStandardEnvironment;
 import org.junit.Test;
 import org.springframework.core.env.MapPropertySource;
-import org.springframework.core.env.MutablePropertySources;
-import org.springframework.core.env.PropertiesPropertySource;
-import org.springframework.core.env.StandardEnvironment;
+
 
 import java.util.HashMap;
 import java.util.Map;

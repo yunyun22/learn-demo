@@ -18,6 +18,7 @@
         <module>demo-starter</module>
         <module>demo-jedis</module>
         <module>demo-springcloudfeign</module>
+        <module>demo-nacos</module>
     </modules>
 
     <parent>
@@ -53,6 +54,13 @@
                 <groupId>com.wjq.demo</groupId>
                 <artifactId>demo-common</artifactId>
                 <version>${demo-common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.2.3.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
         </dependencies>

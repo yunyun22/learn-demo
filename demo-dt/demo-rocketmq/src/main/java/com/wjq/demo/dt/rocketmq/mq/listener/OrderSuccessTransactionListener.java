@@ -33,7 +33,6 @@ public class OrderSuccessTransactionListener implements TransactionListener {
      * 执行本地事务
      * @param msg 消息
      * @param arg 本地参数
-     * @return
      */
     @Override
     public LocalTransactionState executeLocalTransaction(Message msg, Object arg) {
