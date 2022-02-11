@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Administrator
  */
-@Component
+//@Component
 public class MyInterceptor implements HandlerInterceptor {
 
     @Override

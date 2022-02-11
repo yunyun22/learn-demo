@@ -19,6 +19,7 @@
         <module>demo-jedis</module>
         <module>demo-springcloudfeign</module>
         <module>demo-nacos</module>
+        <module>demo-job</module>
     </modules>
 
     <parent>

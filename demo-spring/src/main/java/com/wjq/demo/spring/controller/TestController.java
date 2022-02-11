@@ -4,10 +4,8 @@ import com.wjq.demo.common.annotation.MyAnnotation;
 import com.wjq.demo.config.Man;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +25,21 @@ public class TestController {
     private Man man;
 
 
+    @PostMapping("/upload")
+    public void upload(MultipartFile multipartFile) {
+
+        try {
+            InputStream inputStream = multipartFile.getInputStream();
+            int read = inputStream.read();
+            System.out.println("the file has data");
+            System.out.println(multipartFile.getName());
+        } catch (Exception e) {
+
+        }
+
+    }
+
+
     @GetMapping("/doError")
     public void doError() throws Exception {
         throw new Exception("this is a Exception");
@@ -37,7 +50,7 @@ public class TestController {
     @ResponseBody
     public String sayHello(HttpServletRequest req) {
         DispatcherType dispatcherType = req.getDispatcherType();
-        if (dispatcherType.equals(DispatcherType.FORWARD)){
+        if (dispatcherType.equals(DispatcherType.FORWARD)) {
             System.out.println("this is forward");
         }
         System.out.println(req);
@@ -63,7 +76,7 @@ public class TestController {
     }
 
     @RequestMapping("/testForward")
-    public String testForward(){
+    public String testForward() {
         System.out.println("start forward");
         return "forward:/hello";
     }
