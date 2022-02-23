@@ -1,8 +1,11 @@
 package com.wjq.demo.feign;
 
+import com.wjq.demo.common.util.SpringBeanUtils;
+import com.wjq.demo.feign.dto.Params;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+
 
 /**
  * @author wjq
@@ -14,5 +17,7 @@ public class FeignApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FeignApplication.class, args);
+        //MyFeign myFeign = SpringBeanUtils.getBean("myFeign");
+        //String apply = myFeign.apply(new Params());
     }
 }

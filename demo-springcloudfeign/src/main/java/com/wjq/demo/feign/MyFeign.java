@@ -1,8 +1,10 @@
 package com.wjq.demo.feign;
 
 import com.wjq.demo.feign.config.MyFeignConfig;
+import com.wjq.demo.feign.dto.Params;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.cloud.openfeign.SpringQueryMap;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author wjq
@@ -17,5 +19,12 @@ public interface MyFeign {
      * @return hello world
      */
     @GetMapping
-    String sayHello();
+    String sayHello(@SpringQueryMap Params params);
+
+
+    @DeleteMapping
+    String agree(@RequestParam String s);
+
+    @PostMapping
+    String apply(@RequestBody Params params);
 }
