@@ -17,7 +17,7 @@ public class FeignApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(FeignApplication.class, args);
-        //MyFeign myFeign = SpringBeanUtils.getBean("myFeign");
-        //String apply = myFeign.apply(new Params());
+        String s= "a";
+        s.length();
     }
 }

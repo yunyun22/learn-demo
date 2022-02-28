@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Params {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime dateTime;
+    private  LocalDateTime dateTime;
 
     public LocalDateTime getDateTime() {
         return dateTime;

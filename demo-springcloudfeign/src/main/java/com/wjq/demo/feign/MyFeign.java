@@ -23,7 +23,7 @@ public interface MyFeign {
 
 
     @DeleteMapping
-    String agree(@RequestParam String s);
+    String agree(@RequestParam String s,@RequestParam Integer age);
 
     @PostMapping
     String apply(@RequestBody Params params);
