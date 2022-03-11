@@ -20,6 +20,8 @@
         <module>demo-springcloudfeign</module>
         <module>demo-nacos</module>
         <module>demo-job</module>
+        <module>demo-raft</module>
+        <module>demo-raft-client</module>
     </modules>
 
     <parent>
