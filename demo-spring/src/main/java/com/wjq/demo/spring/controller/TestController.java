@@ -25,6 +25,13 @@ public class TestController {
     private Man man;
 
 
+    @GetMapping("/4m")
+    public void get4M(){
+        byte[] bytes = new byte[4 * 1024 * 1024];
+
+    }
+
+
     @PostMapping("/upload")
     public void upload(MultipartFile multipartFile) {
 
