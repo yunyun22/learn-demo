@@ -15,11 +15,13 @@ public class PongHandler extends SimpleChannelInboundHandler<String> {
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         if (Objects.equals(msg, "PING")) {
             System.out.println(msg);
+
             Channel incoming = ctx.channel();
-            incoming.writeAndFlush("PONG");
+            incoming.writeAndFlush("PONG \n");
+            // ctx.fireChannelReadComplete();
+        } else {
+            ctx.fireChannelRead(msg);
         }
-
-
         //ctx.fireChannelInactive();
     }
 }

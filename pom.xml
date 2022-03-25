@@ -23,6 +23,10 @@
         <module>demo-raft</module>
         <module>demo-raft-client</module>
         <module>demo-netty</module>
+        <module>demo-rpc</module>
+        <module>demo-register</module>
+        <module>demo-server</module>
+        <module>demo-client</module>
     </modules>
 
     <parent>

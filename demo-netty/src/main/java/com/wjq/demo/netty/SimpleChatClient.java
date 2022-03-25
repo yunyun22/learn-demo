@@ -40,6 +40,7 @@ public class SimpleChatClient {
             startBeat(channel);
             BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
+                System.out.println("请输入");
                 channel.writeAndFlush(in.readLine() + "\r\n");
             }
 

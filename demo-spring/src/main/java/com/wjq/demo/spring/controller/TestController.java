@@ -55,12 +55,8 @@ public class TestController {
     @MyAnnotation
     @GetMapping("/hello")
     @ResponseBody
-    public String sayHello(HttpServletRequest req) {
-        DispatcherType dispatcherType = req.getDispatcherType();
-        if (dispatcherType.equals(DispatcherType.FORWARD)) {
-            System.out.println("this is forward");
-        }
-        System.out.println(req);
+    public String sayHello(HttpServletRequest req) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(1);
         return "hello world," + man.getName();
     }
 
