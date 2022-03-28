@@ -1,4 +1,4 @@
-package com.wjq.demo.server;
+package com.wjq.demo.common;
 
 import java.io.Serializable;
 

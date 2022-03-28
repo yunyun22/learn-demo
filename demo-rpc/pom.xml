@@ -20,6 +20,7 @@
         <module>demo-register</module>
         <module>demo-client</module>
         <module>demo-server</module>
+        <module>demo-example</module>
     </modules>
 
     <dependencyManagement>
@@ -35,6 +36,8 @@
                 <artifactId>cglib</artifactId>
                 <version>3.3.0</version>
             </dependency>
+
+
 
         </dependencies>
 

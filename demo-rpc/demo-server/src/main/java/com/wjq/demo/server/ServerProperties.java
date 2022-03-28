@@ -1,37 +1,23 @@
 package com.wjq.demo.server;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * @author wjq
  * @since 2022-03-22
  */
+@Builder
+@Getter
+@Setter
 public class ServerProperties {
     private int port;
 
-    private String serviceName;
-
     private String ip;
 
-    public int getPort() {
-        return port;
-    }
+    private  String serverAddress;
 
-    public void setPort(int port) {
-        this.port = port;
-    }
+    private  String sessionTimeout;
 
-    public String getServiceName() {
-        return serviceName;
-    }
-
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
 }

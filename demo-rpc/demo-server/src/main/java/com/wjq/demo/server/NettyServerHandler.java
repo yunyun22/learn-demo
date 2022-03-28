@@ -1,5 +1,7 @@
 package com.wjq.demo.server;
 
+import com.wjq.demo.common.RpcRequest;
+import com.wjq.demo.common.RpcResponse;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

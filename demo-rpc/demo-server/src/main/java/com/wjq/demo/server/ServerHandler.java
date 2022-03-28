@@ -1,5 +1,7 @@
 package com.wjq.demo.server;
 
+import com.wjq.demo.common.RpcRequest;
+
 /**
  * @author wjq
  * @since 2022-03-22

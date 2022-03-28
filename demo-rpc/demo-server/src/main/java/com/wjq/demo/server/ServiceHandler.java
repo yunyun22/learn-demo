@@ -1,5 +1,6 @@
 package com.wjq.demo.server;
 
+import com.wjq.demo.common.RpcRequest;
 import net.sf.cglib.reflect.FastClass;
 
 import java.lang.reflect.InvocationTargetException;
