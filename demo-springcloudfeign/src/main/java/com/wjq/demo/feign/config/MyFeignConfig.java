@@ -1,5 +1,6 @@
 package com.wjq.demo.feign.config;
 
+import com.wjq.demo.feign.intecepter.ProxyInterceptor;
 import feign.Feign;
 import feign.Request;
 import feign.Retryer;
@@ -26,6 +27,12 @@ public class MyFeignConfig {
     @Bean
     public Retryer feignRetryer() {
         return Retryer.NEVER_RETRY;
+    }
+
+
+    @Bean
+    public ProxyInterceptor proxyInterceptor(){
+        return new ProxyInterceptor();
     }
 
 //    @Bean

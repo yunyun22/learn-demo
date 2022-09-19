@@ -3,6 +3,8 @@ package com.wjq.demo.spring.controller;
 import com.wjq.demo.common.annotation.MyAnnotation;
 import com.wjq.demo.config.Man;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.datetime.joda.LocalDateTimeParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,6 +13,7 @@ import javax.servlet.DispatcherType;
 import javax.servlet.http.HttpServletRequest;
 
 import java.io.*;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -82,5 +85,25 @@ public class TestController {
     public String testForward() {
         System.out.println("start forward");
         return "forward:/hello";
+    }
+
+    @GetMapping("/mydate")
+    public void testLocalDateTime(MyDate myDate){
+
+        System.out.println(myDate.localDateTime);
+
+    }
+
+    private static class MyDate{
+        @DateTimeFormat(pattern ="yyyy-MM-dd HH:mm:ss")
+        private LocalDateTime localDateTime;
+
+        public LocalDateTime getLocalDateTime() {
+            return localDateTime;
+        }
+
+        public void setLocalDateTime(LocalDateTime localDateTime) {
+            this.localDateTime = localDateTime;
+        }
     }
 }
