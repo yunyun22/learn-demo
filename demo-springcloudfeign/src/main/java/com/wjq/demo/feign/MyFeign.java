@@ -1,10 +1,15 @@
 package com.wjq.demo.feign;
 
+import com.wjq.demo.feign.base.MultiRequestParam;
 import com.wjq.demo.feign.config.MyFeignConfig;
 import com.wjq.demo.feign.dto.Params;
+import feign.Param;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * @author wjq
@@ -27,4 +32,9 @@ public interface MyFeign {
 
     @PostMapping
     String apply(@RequestBody Params params);
+
+
+    @PutMapping("/test1")
+    String test1(@MultiRequestParam Params params);
+
 }

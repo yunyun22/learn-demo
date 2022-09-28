@@ -13,11 +13,21 @@ public class Params {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private  LocalDateTime dateTime;
 
+    private java.lang.String name;
+
     public LocalDateTime getDateTime() {
         return dateTime;
     }
 
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Params{" +
+                "dateTime=" + dateTime +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
