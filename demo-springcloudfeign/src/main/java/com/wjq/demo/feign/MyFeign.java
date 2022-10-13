@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @author wjq
@@ -37,4 +38,7 @@ public interface MyFeign {
     @PutMapping("/test1")
     String test1(@MultiRequestParam Params params);
 
+
+    @PutMapping("/test2/{map}")
+    String test2(@MatrixVariable Map<String,String> map);
 }

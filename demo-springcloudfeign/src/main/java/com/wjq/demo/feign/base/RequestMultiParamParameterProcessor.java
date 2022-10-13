@@ -1,7 +1,6 @@
 package com.wjq.demo.feign.base;
 
 import feign.MethodMetadata;
-import feign.Param;
 import org.springframework.cloud.openfeign.AnnotatedParameterProcessor;
 import org.springframework.stereotype.Component;
 
@@ -45,11 +44,19 @@ public class RequestMultiParamParameterProcessor implements AnnotatedParameterPr
         String name = requestParam.value();
         checkState(emptyToNull(name) != null,
                 "RequestParam.value() was empty on parameter %s", parameterIndex);
-        context.setParameterName(name);
 
-        Collection<String> query = context.setTemplateParameter(name, names);
         context.getMethodMetadata().indexToExpander().put(context.getParameterIndex(), Object::toString);
-        data.template().query(name, query);
+
+
+        final Collection<String> tempNames = data.indexToName().containsKey(parameterIndex) ?
+                data.indexToName().get(parameterIndex) : new ArrayList<>();
+        tempNames.addAll(names);
+        data.indexToName().put(parameterIndex, tempNames);
+
+        for (String tempName : names) {
+            Collection<String> query = context.setTemplateParameter(tempName, data.template().queries().get(tempName));
+            data.template().query(tempName, query);
+        }
         return true;
     }
 }

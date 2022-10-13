@@ -40,7 +40,7 @@ public class MyFeignConfig implements ApplicationContextAware {
         return  Logger.Level.FULL;
     }
 
-    @Bean
+//    @Bean
     public ProxyInterceptor proxyInterceptor() {
         ApplicationContext parent = applicationContext.getParent();
         if (parent != null) {
