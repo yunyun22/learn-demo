@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: demo-feign
+  cloud:
+    nacos:
+      config:
+        server-addr: 139.155.73.132:8848
+        file-extension: yaml  # 必须修改成yaml
+        username: nacos
+        password: yuanyun520
+      discovery:
+        server-addr: 139.155.73.132:8848
+        username: nacos
+        password: yuanyun520

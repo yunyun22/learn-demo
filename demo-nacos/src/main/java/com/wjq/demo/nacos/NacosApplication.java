@@ -1,16 +1,17 @@
-package com.wjq.demo.spring;
-
+package com.wjq.demo.nacos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author wjq
- * @since 2021-10-15
+ * @since 2022-01-29
  */
 @SpringBootApplication
-public class Application {
+public class NacosApplication {
+
+
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(NacosApplication.class, args);
     }
 }

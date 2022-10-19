@@ -2,10 +2,12 @@ package com.wjq.demo.feign.controller;
 
 import com.wjq.demo.feign.MyFeign;
 import com.wjq.demo.feign.client.GitHub;
+import com.wjq.demo.feign.dto.Params;
 import feign.Feign;
 import feign.gson.GsonDecoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,8 +23,13 @@ public class MyFeignController {
     private MyFeign myFeign;
 
     @GetMapping("/hello")
-    public String sayHello() {
-        return myFeign.sayHello();
+    public String sayHello(Params params) {
+        return myFeign.sayHello(params);
+    }
+
+    @GetMapping("/apply")
+    public String apply(Params params) {
+        return myFeign.apply(params);
     }
 
     @GetMapping("/contributors")

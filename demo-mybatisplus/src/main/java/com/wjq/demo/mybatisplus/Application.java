@@ -7,14 +7,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * @author jinqiao.wang
+ */
 @RestController
 @SpringBootApplication
 @MapperScan("com.wjq.demo.mybatisplus.mapper")
 public class Application {
 
-
     @RequestMapping("/")
-    String home() {
+    public String home() {
         return "Hello World!";
     }
 
