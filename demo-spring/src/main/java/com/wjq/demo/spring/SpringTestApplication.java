@@ -1,16 +1,17 @@
 package com.wjq.demo.spring;
 
 
+import com.wjq.demo.spring.cache.EnableRedisCaching;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoField;
+import org.springframework.cache.annotation.EnableCaching;
 
 /**
  * @author wjq
  * @since 2021-10-15
  */
 @SpringBootApplication
+@EnableCaching
+@EnableRedisCaching
 public class SpringTestApplication {
     public static void main(String[] args) {
         System.currentTimeMillis();

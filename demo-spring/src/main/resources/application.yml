@@ -13,3 +13,7 @@ server:
     max-http-header-size: 1048576
     #请请求体最大长度kb
     #max-http-post-size: 2097152
+spring:
+  redis:
+    url: 121.37.96.180
+    port: 6397
